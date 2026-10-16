@@ -1,5 +1,5 @@
 -- ===================================================
--- 🔮 TELEKINESIS KING DAVE VVIP - LOADSTRING EDITION
+-- 🔮 TELEKINESIS KING DAVE VVIP - CUSTOM VECTOR ENGINE
 -- ===================================================
 
 local Players = game:GetService("Players")
@@ -15,35 +15,41 @@ local HoldDistance = 0
 local BodyPos, BodyGyro = nil, nil
 local CrosshairVisible = true
 
-local oldGui = LocalPlayer.PlayerGui:FindFirstChild("KingDaveLoadstringVVIP")
+local oldGui = LocalPlayer.PlayerGui:FindFirstChild("KingDaveCustomVVIP")
 if oldGui then oldGui:Destroy() end
 
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "KingDaveLoadstringVVIP"
+ScreenGui.Name = "KingDaveCustomVVIP"
 ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ResetOnSpawn = false
 ScreenGui.DisplayOrder = 9999
 
--- Crosshair Dot Tengah
+-- ==========================================
+-- 🎯 CROSSHAIR BIDIK VIP
+-- ==========================================
 local CrosshairContainer = Instance.new("Frame")
 CrosshairContainer.Name = "CrosshairDot"
-CrosshairContainer.Size = UDim2.new(0, 6, 0, 6)
+CrosshairContainer.Size = UDim2.new(0, 8, 0, 8)
 CrosshairContainer.AnchorPoint = Vector2.new(0.5, 0.5)
 CrosshairContainer.Position = UDim2.new(0.5, 0, 0.5, 0)
-CrosshairContainer.BackgroundColor3 = Color3.fromRGB(180, 0, 255)
+CrosshairContainer.BackgroundColor3 = Color3.fromRGB(200, 0, 255)
 CrosshairContainer.BorderSizePixel = 0
 CrosshairContainer.Parent = ScreenGui
 
 local DotCorner = Instance.new("UICorner") DotCorner.CornerRadius = UDim.new(1, 0) DotCorner.Parent = CrosshairContainer
-local DotStroke = Instance.new("UIStroke") DotStroke.Color = Color3.fromRGB(255, 255, 255) DotStroke.Thickness = 1 DotStroke.Parent = CrosshairContainer
+local DotStroke = Instance.new("UIStroke") DotStroke.Color = Color3.fromRGB(255, 255, 255) DotStroke.Thickness = 1.5 DotStroke.Parent = CrosshairContainer
 
--- Tombol Floating (Bontal) VVIP
+-- ==========================================
+-- 👑 BONTAL FLOATING BUTTON (CUSTOM VECTOR)
+-- ==========================================
 local ToggleBtn = Instance.new("TextButton")
-ToggleBtn.Size = UDim2.new(0, 55, 0, 55)
+ToggleBtn.Size = UDim2.new(0, 60, 0, 60)
 ToggleBtn.Position = UDim2.new(0.03, 0, 0.2, 0)
 ToggleBtn.BackgroundColor3 = Color3.fromRGB(15, 8, 28)
-ToggleBtn.Text = "👑🧲"
-ToggleBtn.TextSize = 22
+ToggleBtn.Text = "👑\n🧲"
+ToggleBtn.TextColor3 = Color3.fromRGB(255, 215, 0)
+ToggleBtn.TextSize = 18
+ToggleBtn.Font = Enum.Font.GothamBold
 ToggleBtn.Active = true
 ToggleBtn.Draggable = true
 ToggleBtn.Parent = ScreenGui
@@ -51,34 +57,38 @@ ToggleBtn.Parent = ScreenGui
 local BtnCorner = Instance.new("UICorner") BtnCorner.CornerRadius = UDim.new(1, 0) BtnCorner.Parent = ToggleBtn
 local BtnStroke = Instance.new("UIStroke") BtnStroke.Color = Color3.fromRGB(180, 0, 255) BtnStroke.Thickness = 3 BtnStroke.Parent = ToggleBtn
 
--- Panel Utama Phantom VVIP
+-- ==========================================
+-- 🛡️ PANEL UTAMA PHANTOM VVIP
+-- ==========================================
 local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 280, 0, 245)
+MainFrame.Size = UDim2.new(0, 280, 0, 250)
 MainFrame.Position = UDim2.new(0.12, 0, 0.18, 0)
-MainFrame.BackgroundColor3 = Color3.fromRGB(12, 8, 20)
+MainFrame.BackgroundColor3 = Color3.fromRGB(12, 8, 22)
 MainFrame.Active = true
 MainFrame.Draggable = true
 MainFrame.ClipsDescendants = true
 MainFrame.Visible = false
 MainFrame.Parent = ScreenGui
 
-local FrameCorner = Instance.new("UICorner") FrameCorner.CornerRadius = UDim.new(0, 12) FrameCorner.Parent = MainFrame
+local FrameCorner = Instance.new("UICorner") FrameCorner.CornerRadius = UDim.new(0, 14) FrameCorner.Parent = MainFrame
 local FrameStroke = Instance.new("UIStroke") FrameStroke.Color = Color3.fromRGB(180, 0, 255) FrameStroke.Thickness = 2.5 FrameStroke.Parent = MainFrame
 
--- Watermark Background Naga
+-- 🐉 WATERMARK NAGA CUSTOM
 local BgLogo = Instance.new("TextLabel")
 BgLogo.Size = UDim2.new(1, 0, 1, 0)
 BgLogo.Position = UDim2.new(0, 0, 0, 10)
 BgLogo.BackgroundTransparency = 1
 BgLogo.Text = "🐉"
-BgLogo.TextSize = 130
+BgLogo.TextSize = 140
 BgLogo.TextTransparency = 0.88
 BgLogo.ZIndex = 1
 BgLogo.Parent = MainFrame
 
--- Header Bar
+-- ==========================================
+-- 🔝 HEADER BAR & EMBLEM LOGO
+-- ==========================================
 local HeaderBar = Instance.new("Frame")
-HeaderBar.Size = UDim2.new(1, 0, 0, 40)
+HeaderBar.Size = UDim2.new(1, 0, 0, 42)
 HeaderBar.BackgroundColor3 = Color3.fromRGB(25, 12, 45)
 HeaderBar.BorderSizePixel = 0
 HeaderBar.ZIndex = 2
@@ -88,23 +98,25 @@ local HeaderStroke = Instance.new("UIStroke") HeaderStroke.Color = Color3.fromRG
 
 local HeaderIcon = Instance.new("TextLabel")
 HeaderIcon.Size = UDim2.new(0, 35, 1, 0) HeaderIcon.Position = UDim2.new(0.02, 0, 0, 0)
-HeaderIcon.BackgroundTransparency = 1 HeaderIcon.Text = "🧲" HeaderIcon.TextSize = 18 HeaderIcon.ZIndex = 2 HeaderIcon.Parent = HeaderBar
+HeaderIcon.BackgroundTransparency = 1 HeaderIcon.Text = "🧲" HeaderIcon.TextSize = 20 HeaderIcon.ZIndex = 2 HeaderIcon.Parent = HeaderBar
 
 local TitleLabel = Instance.new("TextLabel")
 TitleLabel.Size = UDim2.new(0, 180, 1, 0) TitleLabel.Position = UDim2.new(0.15, 0, 0, 0)
-TitleLabel.BackgroundTransparency = 1 TitleLabel.Text = "TELEKINESIS KING DAVE" TitleLabel.TextColor3 = Color3.fromRGB(240, 200, 255) TitleLabel.TextSize = 10 TitleLabel.Font = Enum.Font.GothamBold TitleLabel.TextXAlignment = Enum.TextXAlignment.Left TitleLabel.ZIndex = 2 TitleLabel.Parent = HeaderBar
+TitleLabel.BackgroundTransparency = 1 TitleLabel.Text = "TELEKINESIS KING DAVE" TitleLabel.TextColor3 = Color3.fromRGB(240, 200, 255) TitleLabel.TextSize = 11 TitleLabel.Font = Enum.Font.GothamBold TitleLabel.TextXAlignment = Enum.TextXAlignment.Left TitleLabel.ZIndex = 2 TitleLabel.Parent = HeaderBar
 
 local MinBtn = Instance.new("TextButton")
-MinBtn.Size = UDim2.new(0, 28, 0, 28) MinBtn.Position = UDim2.new(0.72, 0, 0.15, 0)
+MinBtn.Size = UDim2.new(0, 28, 0, 28) MinBtn.Position = UDim2.new(0.72, 0, 0.16, 0)
 MinBtn.BackgroundColor3 = Color3.fromRGB(255, 180, 0) MinBtn.Text = "-" MinBtn.TextColor3 = Color3.fromRGB(0, 0, 0) MinBtn.TextSize = 16 MinBtn.Font = Enum.Font.GothamBold MinBtn.ZIndex = 2 MinBtn.Parent = HeaderBar
 local MinC = Instance.new("UICorner") MinC.CornerRadius = UDim.new(1, 0) MinC.Parent = MinBtn
 
 local CloseBtn = Instance.new("TextButton")
-CloseBtn.Size = UDim2.new(0, 28, 0, 28) CloseBtn.Position = UDim2.new(0.86, 0, 0.15, 0)
+CloseBtn.Size = UDim2.new(0, 28, 0, 28) CloseBtn.Position = UDim2.new(0.86, 0, 0.16, 0)
 CloseBtn.BackgroundColor3 = Color3.fromRGB(230, 40, 60) CloseBtn.Text = "X" CloseBtn.TextColor3 = Color3.fromRGB(255, 255, 255) CloseBtn.TextSize = 12 CloseBtn.Font = Enum.Font.GothamBold CloseBtn.ZIndex = 2 CloseBtn.Parent = HeaderBar
 local CloseC = Instance.new("UICorner") CloseC.CornerRadius = UDim.new(1, 0) CloseC.Parent = CloseBtn
 
--- Tombol Utama Bahasa Indonesia
+-- ==========================================
+-- 🔘 TOMBOL UTAMA BAHASA INDONESIA
+-- ==========================================
 local GrabBtn = Instance.new("TextButton")
 GrabBtn.Size = UDim2.new(0.9, 0, 0, 48) GrabBtn.Position = UDim2.new(0.05, 0, 0.24, 0)
 GrabBtn.BackgroundColor3 = Color3.fromRGB(220, 50, 70) GrabBtn.Text = "🖐️ PEGANG OBJEK : MATI" GrabBtn.TextColor3 = Color3.fromRGB(255, 255, 255) GrabBtn.TextSize = 11 GrabBtn.Font = Enum.Font.GothamBold GrabBtn.ZIndex = 2 GrabBtn.Parent = MainFrame
@@ -127,7 +139,9 @@ local FooterLabel = Instance.new("TextLabel")
 FooterLabel.Size = UDim2.new(1, 0, 0, 22) FooterLabel.Position = UDim2.new(0, 0, 0.88, 0)
 FooterLabel.BackgroundTransparency = 1 FooterLabel.Text = "by KING DAVE" FooterLabel.TextColor3 = Color3.fromRGB(160, 120, 200) FooterLabel.TextSize = 10 FooterLabel.Font = Enum.Font.GothamBold FooterLabel.ZIndex = 2 FooterLabel.Parent = MainFrame
 
--- Logika Telekinesis & Fix Airdrop
+-- ==========================================
+-- ⚙️ LOGIKA & ENGINE TELEKINESIS
+-- ==========================================
 ToggleBtn.MouseButton1Click:Connect(function() MainFrame.Visible = not MainFrame.Visible end)
 MinBtn.MouseButton1Click:Connect(function() MainFrame.Visible = false end)
 CloseBtn.MouseButton1Click:Connect(function() ScreenGui:Destroy() end)
@@ -183,7 +197,7 @@ local function GetTargetInCrosshair()
     local raycastParams = RaycastParams.new()
     raycastParams.FilterType = Enum.RaycastFilterType.Exclude
     if char then raycastParams.FilterDescendantsInstances = {char} end
-    local rayResult = Workspace:Raycast(Camera.CFrame.Position, Camera.Camera.CFrame.LookVector * 250, raycastParams)
+    local rayResult = Workspace:Raycast(Camera.CFrame.Position, Camera.CFrame.LookVector * 250, raycastParams)
     if rayResult and rayResult.Instance and not rayResult.Instance:IsDescendantOf(char) then return rayResult.Instance end
     
     local closestPart = nil
@@ -241,4 +255,4 @@ RunService.RenderStepped:Connect(function()
     end
 end)
 
-StarterGui:SetCore("SendNotification", { Title = "TELEKINESIS KING DAVE", Text = "Loadstring Successfully Executed!", Duration = 5 })
+StarterGui:SetCore("SendNotification", { Title = "KING DAVE VVIP", Text = "Custom Engine Executed!", Duration = 5 })
